@@ -12,5 +12,5 @@ app.get('/api/status', (req, res) => {
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-  console.log('Server up at 5000!');
+  console.log('Server container up at 5000!');
 })
