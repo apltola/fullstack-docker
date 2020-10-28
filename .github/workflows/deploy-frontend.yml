@@ -22,13 +22,4 @@ jobs:
           docker stop $(docker ps -a -q)
           docker rm $(docker ps -a -q)
           docker pull aleksijaakkojuhani/vue-front
-          docker run -p 8080:80 aleksijaakkojuhani/vue-front
-
-
-#     - uses: actions/checkout@v2
-#     - run: cd frontend && docker build -t aleksijaakkojuhani/vue-front .
-#     - run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
-#       env:
-#         DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME}}
-#         DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD}}
-#     - run: docker push aleksijaakkojuhani/vue-front
+          docker run -d -p 8080:80 aleksijaakkojuhani/vue-front
