@@ -6,7 +6,7 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-app.get('/api/status', (req, res) => {
+app.get('/status', (req, res) => {
   res.send(`server is online! node_env = ${process.env.NODE_ENV}`)
 })
 

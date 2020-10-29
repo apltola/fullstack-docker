@@ -28,14 +28,24 @@
       <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
       <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
     </ul>
+    <button @click="pingApi">ping</button>
   </div>
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   name: 'HelloWorld',
   props: {
     msg: String
+  },
+
+  methods: {
+    async pingApi() {
+      const res = await axios.get('/api/status')
+      console.log(res.data);
+    }
   }
 }
 </script>

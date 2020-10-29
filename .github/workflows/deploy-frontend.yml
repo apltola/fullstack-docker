@@ -1,25 +1,25 @@
-name: build
-
-on:
-  push:
-    branches: 
-      - master
-    paths:
-      - 'frontend/**'
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-    - name: execute droplet commands
-      uses: appleboy/ssh-action@master
-      with:
-        host: ${{ secrets.DROPLET_HOST }}
-        username: ${{ secrets.DROPLET_USERNAME }}
-        password: ${{ secrets.DROPLET_PASSWORD }}
-        port: ${{ secrets.DROPLET_PORT }}
-        script: |
-          docker stop $(docker ps -a -q)
-          docker rm $(docker ps -a -q)
-          docker pull aleksijaakkojuhani/vue-front
-          docker run -d -p 8080:80 aleksijaakkojuhani/vue-front
+#name: build
+#
+#on:
+#  push:
+#    branches: 
+#      - master
+#    paths:
+#      - 'frontend/**'
+#
+#jobs:
+#  build:
+#    runs-on: ubuntu-latest
+#    steps:
+#    - name: execute droplet commands
+#      uses: appleboy/ssh-action@master
+#      with:
+#        host: ${{ secrets.DROPLET_HOST }}
+#        username: ${{ secrets.DROPLET_USERNAME }}
+#        password: ${{ secrets.DROPLET_PASSWORD }}
+#        port: ${{ secrets.DROPLET_PORT }}
+#        script: |
+#          docker stop $(docker ps -a -q)
+#          docker rm $(docker ps -a -q)
+#          docker pull aleksijaakkojuhani/vue-front
+#          docker run -d -p 8080:80 aleksijaakkojuhani/vue-front
