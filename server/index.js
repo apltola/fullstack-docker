@@ -7,7 +7,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 app.get('/status', (req, res) => {
-  res.send(`server is online! node_env = ${process.env.NODE_ENV}`)
+  res.send(`hellou hellou server is online!`)
 })
 
 const PORT = process.env.PORT || 5000;
