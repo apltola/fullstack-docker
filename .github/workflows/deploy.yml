@@ -24,14 +24,15 @@ jobs:
         source: "."
         target: "/opt/app"
 
-    # - name: Executing remote  command
-    #   uses: appleboy/ssh-action@master
-    #   with:
-    #     HOST: ${{ secrets.DROPLET_HOST }}
-    #     USERNAME: ${{ secrets.DROPLET_USERNAME }}
-    #     PORT: ${{ secrets.DROPLET_PORT }}
-    #     PASSWORD: ${{ secrets.DROPLET_PASSWORD }}
-    #     #script: cat /opt/app/README.md
-    #     script: |
-    #       docker-compose down
-    #       docker-compose up --build
+    - name: Executing remote  command
+      uses: appleboy/ssh-action@master
+      with:
+        HOST: ${{ secrets.DROPLET_HOST }}
+        USERNAME: ${{ secrets.DROPLET_USERNAME }}
+        PORT: ${{ secrets.DROPLET_PORT }}
+        PASSWORD: ${{ secrets.DROPLET_PASSWORD }}
+        #script: cat /opt/app/README.md
+        script: |
+          cd /opt/app
+          docker-compose down
+          docker-compose up --build -d
